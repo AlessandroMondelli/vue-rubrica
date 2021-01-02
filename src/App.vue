@@ -14,6 +14,7 @@
         :email-address="friend.email"
         :is-favorite="friend.isFavorite"
         @toggle-favorite="toggleFavoriteStatus"
+        @delete="deleteContact"
       ></friend-contact>
     </ul>
   </section>
@@ -60,6 +61,10 @@ export default {
       }
 
       this.friends.push(newFriendContact); //Inserisco oggetto nell'array di oggetti "friends"
+    },
+    deleteContact(friendId) {
+      this.friends = this.friends.filter((friend) => friend.id !== friendId); //la funzione integrata in js "filter()" crea un nuovo array con tutti gli elementi passati per la funzione, restituisce true se l'elemento va mantenuto. In questo caso teniamo tutti gli elementi che hanno id diverso da quello preso dal component
+
     }
   },
 };

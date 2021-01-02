@@ -13,6 +13,7 @@
         {{ emailAddress }}
       </li>
     </ul>
+    <button @click="$emit('delete', id)">Elimina contatto</button>
   </li>
 </template>
 
@@ -42,7 +43,7 @@ export default {
       default: false,
     },
   },
-  emits: ['toggle-favorite'],
+  emits: ['toggle-favorite', 'delete'],
   // emits: { //emits con validazione
   //   'toggle-favorite': function(id) {
   //     if (id) {
